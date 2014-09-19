@@ -10,23 +10,25 @@
  */
 angular
   .module('newsFeedApp', [
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    // 'ngCookies',
+    // 'ngResource',
+    // 'ngRoute',
+    // 'ngSanitize',
+    // 'ngTouch'
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
+      .state('news', {
+        url: '/news/:newsId',
+        templateUrl: 'views/news.html',
+        controller: 'NewsCtrl'
       });
+
+    $urlRouterProvider.otherwise('/');
   });

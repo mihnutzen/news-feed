@@ -8,7 +8,7 @@
  * Controller of the newsFeedApp
  */
 angular.module('newsFeedApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('NewsCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
