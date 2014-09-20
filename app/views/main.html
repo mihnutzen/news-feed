@@ -1,19 +1,31 @@
 home tpl
 
-<ul class="">
-  <li ng-repeat="news in newsList | startFrom:startPos*itemsPerPage | limitTo: itemsPerPage">{{ news.title }}</li>
-</ul>
 
 
-<div class="pagination" ng-if="newsList">
-  <button ng-disabled="startPos == 0" ng-click="prevPage()"> Prev </button>
-  <span>{{ startPos + 1 }} / {{ totalPages() }}</span>
-  <button ng-disabled="startPos == totalPages()" ng-click="nextPage()"> Next </button>
-
+<div class="panel-group" id="accordion" ng-if="newsList">
+  <div class="panel panel-default" ng-repeat="news in newsList | startFrom:pagination.startPos*pagination.itemsPerPage | limitTo: pagination.itemsPerPage">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#item{{ $index }}">
+          {{ news.title }}
+        </a>
+      </h4>
+    </div>
+    <div id="item{{ $index }}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{ news.description }}
+      </div>
+    </div>
+  </div>
 </div>
 
-{{ startPos }}
-
+<div class="row" ng-if="newsList">
+  <div class="pagination">
+    <button ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev </button>
+    <span>{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
+    <button ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next </button>
+  </div>
+</div>
 <!-- <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">

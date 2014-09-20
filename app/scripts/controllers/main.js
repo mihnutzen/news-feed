@@ -29,28 +29,29 @@
       },
 
       controller: function ($scope) {
-        $scope.startPos = 0;
-        $scope.itemsPerPage = 10;
-        $scope.newsList = [];
-        $scope.totalPages = function() {
-          return Math.ceil($scope.newsList.length / $scope.itemsPerPage);
-        };
 
-        $scope.prevPage = function() {
-          if ($scope.startPos === 0) {
-            $scope.startPos = $scope.totalPages();
-          } else {
-            $scope.startPos--;
+        $scope.pagination = {
+          startPos : 0,
+          itemsPerPage: 10,
+          totalPages: function() {
+            return Math.ceil($scope.newsList.length / this.itemsPerPage);
+          },
+          prevPage: function() {
+            if (this.startPos === 0) {
+              this.startPos = this.totalPages();
+            } else {
+              this.startPos--;
+            }
+          },
+          nextPage: function() {
+            if (this.startPos === this.totalPages()) {
+              this.startPos = 0;
+            } else {
+              this.startPos++;
+            }
           }
         };
 
-        $scope.nextPage = function() {
-          if ($scope.startPos === $scope.totalPages()) {
-            $scope.startPos = 0;
-          } else {
-            $scope.startPos++;
-          }
-        };
       },
 
       templateUrl: 'views/main.html'

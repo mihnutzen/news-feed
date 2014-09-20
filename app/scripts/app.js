@@ -13,7 +13,7 @@ angular
     // 'ngCookies',
     // 'ngResource',
     // 'ngRoute',
-    // 'ngSanitize',
+    'ngSanitize',
     // 'ngTouch'
     'ui.router'
   ])
