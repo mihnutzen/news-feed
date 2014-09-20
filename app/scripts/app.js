@@ -49,7 +49,6 @@ angular
       if (appData) {
         // attach news list to scope
         $scope.newsItems = appData.value.items;
-        console.log('$scope.newsItems --- ', $scope.newsItems);
       }
     });
 

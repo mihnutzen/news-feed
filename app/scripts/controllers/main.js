@@ -49,8 +49,29 @@
             } else {
               this.startPos++;
             }
+          },
+          setItemsPerpage: function(number) {
+            this.itemsPerPage = number;
+            this.totalPages();
           }
         };
+
+
+        $scope.$watch('newsList', function (data) {
+          if (data) {
+            for (var i = 0; i < data.length; i++) {
+              var itemData = data[i];
+
+              // the api returns different kinds of data eg: media content / thumbnail
+              // because of this visual data is attached to a new var
+              if (itemData['media:content'] && itemData['media:content'].url) {
+                itemData.visual = itemData['media:content'].url;
+              } else if (itemData['media:thumbnail'] && itemData['media:thumbnail'].url) {
+                itemData.visual = itemData['media:thumbnail'].url;
+              }
+            }
+          }
+        });
 
       },
 
@@ -60,24 +81,3 @@
   });
 
 })();
-
-
-// 'use strict';
-
-// /**
-//  * @ngdoc function
-//  * @name newsFeedApp.controller:MainCtrl
-//  * @description
-//  * # MainCtrl
-//  * Controller of the newsFeedApp
-//  */
-// angular.module('newsFeedApp')
-//   .controller('HomeCtrl', function ($scope) {
-//     console.log('home ctrl');
-
-//     $scope.awesomeThings = [
-//       'HTML5 Boilerplate',
-//       'AngularJS',
-//       'Karma'
-//     ];
-//   });

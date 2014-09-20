@@ -1,29 +1,38 @@
 home tpl
 
-
+<div class="row" ng-if="newsList" style="margin: 20px 0;">
+  <div class="dropdown col-md-3">
+    <a role="button" data-toggle="dropdown" href="#">Items per page<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li ng-click="pagination.setItemsPerpage(10)" role="presentation"><a href="" role="menuitem">10 items</a></li>
+      <li ng-click="pagination.setItemsPerpage(20)" role="presentation"><a href="" role="menuitem">20 items</a></li>
+      <li ng-click="pagination.setItemsPerpage(30)" role="presentation"><a href="" role="menuitem">30 items</a></li>
+      <li ng-click="pagination.setItemsPerpage(40)" role="presentation"><a href="" role="menuitem">40 items</a></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <button ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev </button>
+    <span>{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
+    <button ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next </button>
+  </div>
+</div>
 
 <div class="panel-group" id="accordion" ng-if="newsList">
   <div class="panel panel-default" ng-repeat="news in newsList | startFrom:pagination.startPos*pagination.itemsPerPage | limitTo: pagination.itemsPerPage">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#item{{ $index }}">
+          <span ng-if="news.visual"><img ng-src="{{ news.visual }}" alt="{{ news.title }}" /></span>
           {{ news.title }}
         </a>
       </h4>
     </div>
     <div id="item{{ $index }}" class="panel-collapse collapse">
       <div class="panel-body">
-        {{ news.description }}
+        <div ng-bind-html="news.description"></div>
+        <a class="follow" href="{{ news.link }}" target="_blank">Read article</a>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="row" ng-if="newsList">
-  <div class="pagination">
-    <button ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev </button>
-    <span>{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
-    <button ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next </button>
   </div>
 </div>
 <!-- <div class="jumbotron">

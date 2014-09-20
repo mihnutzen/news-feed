@@ -37,6 +37,15 @@ body {
   }
 }
 
+
+.panel-group {
+  img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
