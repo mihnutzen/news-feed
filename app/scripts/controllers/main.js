@@ -69,6 +69,11 @@
               } else if (itemData['media:thumbnail'] && itemData['media:thumbnail'].url) {
                 itemData.visual = itemData['media:thumbnail'].url;
               }
+
+              // var regex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
+              // var zaSrc = regex.exec(itemData.description);
+              // console.log('haz image inline -> ', zaSrc);
+              // .description.indexOf('<img')
             }
           }
         });
