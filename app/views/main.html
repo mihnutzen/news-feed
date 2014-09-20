@@ -1,4 +1,20 @@
-<div class="jumbotron">
+home tpl
+
+<ul class="">
+  <li ng-repeat="news in newsList | startFrom:startPos*itemsPerPage | limitTo: itemsPerPage">{{ news.title }}</li>
+</ul>
+
+
+<div class="pagination" ng-if="newsList">
+  <button ng-disabled="startPos == 0" ng-click="prevPage()"> Prev </button>
+  <span>{{ startPos + 1 }} / {{ totalPages() }}</span>
+  <button ng-disabled="startPos == totalPages()" ng-click="nextPage()"> Next </button>
+
+</div>
+
+{{ startPos }}
+
+<!-- <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
@@ -21,3 +37,4 @@
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
 </div>
+ -->

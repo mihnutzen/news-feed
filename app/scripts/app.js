@@ -21,14 +21,37 @@ angular
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        template: '<div home-list data-items="newsItems"></div>'
       })
       .state('news', {
         url: '/news/:newsId',
-        templateUrl: 'views/news.html',
-        controller: 'NewsCtrl'
+        controller: 'NewsCtrl',
+        views: {
+          'news-view': {
+            template: '<div news-view data-items="newsItems"></div>'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
+  })
+  .controller('mainAppController', function($scope, dataService) {
+    console.log('-- app controller --');
+
+    // fetch data
+    dataService.getAppData().then(function (successResponse) {
+      $scope.appData = successResponse.data;
+    }, function (errorResponse) {
+      console.log('mainAppController - dataService getMenu() error -> ', errorResponse);
+    });
+
+    $scope.$watch('appData', function (appData) {
+      if (appData) {
+        // attach news list to scope
+        $scope.newsItems = appData.value.items;
+        console.log('$scope.newsItems --- ', $scope.newsItems);
+      }
+    });
+
+    // console.log('aapp DATA ', $scope.appData);
   });
