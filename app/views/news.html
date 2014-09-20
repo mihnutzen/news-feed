@@ -1,5 +1,5 @@
-<p>This is the about view.</p>
+<h1>{{ newsItem.title }}</h1>
+<div ng-bind-html="newsItem.description"></div>
 
-<p>{{ socool }}</p>
-
-<div news-view data-news="itemData"></div>
+<p class="prev"><a ng-click="prevNews()">prev</a></p>
+<p class="next"><a ng-click="nextNews()">next</a></p>

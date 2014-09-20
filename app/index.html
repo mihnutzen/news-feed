@@ -30,9 +30,11 @@
         <h3 class="text-muted">newsFeed</h3>
       </div>
 
-      <div ui-view></div>
+      <div ui-view ng-class="{ loading: loading }">
+        <div ng-if="loading" class="loader"></div>
+      </div>
       <div ui-view="home-list"></div>
-      <div ui-view="news--view"></div>
+      <article ui-view="news-view"></article>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>

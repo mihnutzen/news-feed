@@ -17,7 +17,7 @@
   <div class="panel panel-default" ng-repeat="news in newsList | startFrom:pagination.startPos*pagination.itemsPerPage | limitTo: pagination.itemsPerPage">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#item{{ $index }}">
+        <a data-toggle="collapse" data-parent="#accordion" ng-click="openItem($index + pagination.startPos*pagination.itemsPerPage + 1)">
           <span ng-if="news.visual"><img ng-src="{{ news.visual }}" alt="{{ news.title }}" /></span>
           {{ news.title }}
         </a>

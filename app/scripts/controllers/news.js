@@ -1,20 +1,58 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name newsFeedApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the newsFeedApp
- */
-angular.module('newsFeedApp')
-  .controller('NewsCtrl', function ($scope) {
-    console.log('news controller');
+  angular.module('newsFeedApp')
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $scope.socool = 'i\'m so cool !';
+  .directive('newsView', function () {
+
+    return {
+      scope: {
+        item: '=',
+        total: '='
+      },
+
+      link: function (scope) {
+
+        scope.$watch('item', function (data) {
+          if (data) {
+            scope.newsItem = data;
+          }
+
+        });
+
+      },
+
+      controller: function ($scope, $state) {
+
+        $scope.$watch('newsItem', function (data) {
+          if (data) {
+            // console.log('data', data);
+          }
+        });
+
+        $scope.nextNews = function() {
+          if ($state.params.newsId < $scope.total) {
+            $scope.goToNews(parseInt($state.params.newsId, 10) + 1);
+          }
+        };
+
+        $scope.prevNews = function() {
+          if ($state.params.newsId > 1) {
+            $scope.goToNews(parseInt($state.params.newsId, 10) - 1);
+          } else {
+            $state.go('home');
+          }
+        };
+
+        $scope.goToNews = function(id) {
+          $state.go('news', { newsId: id });
+        };
+
+      },
+
+      templateUrl: 'views/news.html'
+    };
+
   });
+
+})();

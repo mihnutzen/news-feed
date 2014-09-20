@@ -28,7 +28,7 @@
 
       },
 
-      controller: function ($scope) {
+      controller: function ($scope, $state) {
 
         $scope.pagination = {
           startPos : 0,
@@ -57,6 +57,11 @@
         };
 
 
+        $scope.openItem = function(id) {
+          $state.go('news', { newsId: id });
+        };
+
+
         $scope.$watch('newsList', function (data) {
           if (data) {
             for (var i = 0; i < data.length; i++) {
@@ -69,11 +74,6 @@
               } else if (itemData['media:thumbnail'] && itemData['media:thumbnail'].url) {
                 itemData.visual = itemData['media:thumbnail'].url;
               }
-
-              // var regex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
-              // var zaSrc = regex.exec(itemData.description);
-              // console.log('haz image inline -> ', zaSrc);
-              // .description.indexOf('<img')
             }
           }
         });
