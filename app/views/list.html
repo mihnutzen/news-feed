@@ -1,6 +1,11 @@
 <div class="pagination" ng-if="newsList">
   <div class="dropdown pagination--counter" ng-class="{ open: dropdownIsOpen }">
-    <a class="dropdown--trigger" ng-click="toggleDropdown()">Items per page ({{ pagination.itemsPerPage }})</a>
+    <a class="dropdown--trigger" ng-click="toggleDropdown()">
+      Items per page ({{ pagination.itemsPerPage }})
+      <svg class="svg--icon">
+        <use xlink:href="#icon-arrowb" />
+      </svg>
+    </a>
     <ul class="dropdown--menu">
       <li ng-repeat="multiply in [1,2,3,4,5]" ng-click="pagination.setItemsPerpage(multiply * 10)" role="presentation">
         <a href="" role="menuitem">{{ multiply * 10 }} items</a>

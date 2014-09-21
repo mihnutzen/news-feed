@@ -25,7 +25,6 @@
           }
 
         });
-
       },
 
       controller: function ($scope, $state) {
@@ -65,6 +64,7 @@
           $scope.dropdownIsOpen = !$scope.dropdownIsOpen;
         };
 
+        // TO DO: make use of visual type
         $scope.setVisualType = function(img, indx) {
           var dummyImg = document.createElement('img');
           if (img) {
@@ -89,7 +89,6 @@
               var itemData = data[i];
 
               // the api returns different kinds of data eg: media content / thumbnail
-              // because of this visual data is attached to a new var
               if (itemData['media:content'] && itemData['media:content'].url) {
                 itemData.visual = itemData['media:content'].url;
               } else if (itemData['media:thumbnail'] && itemData['media:thumbnail'].url) {
