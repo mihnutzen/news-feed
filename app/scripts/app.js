@@ -10,11 +10,7 @@
  */
 angular
   .module('newsFeedApp', [
-    // 'ngCookies',
-    // 'ngResource',
-    // 'ngRoute',
     'ngSanitize',
-    // 'ngTouch'
     'ui.router'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -39,8 +35,6 @@ angular
     $urlRouterProvider.otherwise('/');
   })
   .controller('mainAppController', function($scope, dataService, $rootScope) {
-    console.log('-- app controller --');
-
     $scope.loading = true;
 
     // fetch data
@@ -64,10 +58,12 @@ angular
       }
     });
 
+    // attach news item data to scope
     $scope.setItem = function(id) {
       $scope.newsItem = $scope.newsItems[id - 1];
     };
 
+    // take param on state change and pass it forward to obtain item data
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
       if (toParams && toParams.newsId) {
         $scope.newsItemId = parseInt(toParams.newsId, 10);
@@ -75,8 +71,5 @@ angular
           $scope.setItem($scope.newsItemId);
         }
       }
-      // $state.go();
     });
-
-    // console.log('aapp DATA ', $scope.appData);
   });

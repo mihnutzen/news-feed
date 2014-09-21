@@ -19,6 +19,21 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <svg width="0" height="0">
+      <defs>
+        <symbol id="icon-left" viewBox="0 0 24 24">
+            <path d="M18,13v-2H9.23l3.692-4H10l-5,5l5,5h2.922L9.23,13H18z"/>
+            <path d="M0,12C0,5.384,5.384,0,12,0c6.617,0,12,5.384,12,12s-5.383,12-12,12C5.384,24,0,18.616,0,12z M1.846,12 C1.846,17.6,6.4,22.154,12,22.154S22.154,17.6,22.154,12C22.154,6.401,17.6,1.846,12,1.846S1.846,6.401,1.846,12z"/>
+        </symbol>
+
+        <symbol id="icon-right" viewBox="0 0 24 24">
+            <path d="M14.77,13l-3.692,4H14l5-5l-5-5h-2.923l3.692,4H6v2H14.77z"/>
+            <path d="M12,24C5.383,24,0,18.616,0,12S5.383,0,12,0c6.616,0,12,5.384,12,12S18.616,24,12,24z M12,1.846 C6.401,1.846,1.846,6.401,1.846,12S6.401,22.154,12,22.154S22.154,17.599,22.154,12S17.599,1.846,12,1.846z"/>
+        </symbol>
+      </defs>
+    </svg>
+
+
     <!-- Application content here -->
     <div class="container home-page">
       <div class="header">
@@ -55,38 +70,23 @@
     <![endif]-->
     <!-- endbuild -->
 
-    <!-- <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>  -->
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/dataService.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/news.js"></script>
-        <!-- endbuild -->
+
+    <!-- TO DO: add functionality to swipe for next news -->
+    <!-- <script src="bower_components/angular-touch/angular-touch.js"></script> -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/dataService.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/news.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

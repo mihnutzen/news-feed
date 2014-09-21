@@ -7,11 +7,6 @@
  * @author Mihnea Belcin
  */
 
-// $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-
-// endbower
-// @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
 /*------------------------------------*\
     $GLOBAL
@@ -29,9 +24,10 @@
 
 @import "components/loader";
 @import "components/pagination";
-@import "components/news-list";
 @import "components/dropdown";
+
 @import "modules/news-box";
+@import "modules/news-list";
 
 /*------------------------------------*\
     PAGES

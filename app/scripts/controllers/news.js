@@ -39,8 +39,6 @@
         $scope.prevNews = function() {
           if ($state.params.newsId > 1) {
             $scope.goToNews(parseInt($state.params.newsId, 10) - 1);
-          } else {
-            $state.go('home');
           }
         };
 

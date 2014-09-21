@@ -1,5 +1,4 @@
 .news-list {
-  // background-color: pink;
   width: 100%;
   overflow: hidden;
   clear: both;
@@ -14,6 +13,7 @@
     min-height: 200px;
     margin-bottom: $nf-spacing/2;
 
+    // styles for tablet portrait
     @include fromWidth($smallWidth + 1px) {
       margin-right: 2%;
       margin-bottom: 2%;
@@ -30,6 +30,7 @@
       }
     }
 
+    // styles for tablet landscape & desktop
     @include fromWidth($mediumWidth) {
       margin-right: 2%;
       margin-bottom: 2%;

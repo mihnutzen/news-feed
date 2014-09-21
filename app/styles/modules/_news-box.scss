@@ -6,8 +6,12 @@
   position: relative;
 
   .news-box--title {
-    width: 60%;
+
     margin-bottom: $nf-spacing;
+
+    @include fromWidth($mediumWidth) {
+      width: 60%;
+    }
   }
 
   .news-box--body {
@@ -47,6 +51,7 @@
       display: inline-block;
       cursor: pointer;
       margin-right: $nf-spacing;
+      margin-bottom: $nf-spacing/2;
 
       font-size: 16px;
       font-weight: 700;

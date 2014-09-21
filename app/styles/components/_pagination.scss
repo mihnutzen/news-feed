@@ -3,11 +3,27 @@
   padding: $nf-spacing/2 0;
 
   .pagination--counter {
-    float: left;
+
+    @include fromWidth($mediumWidth) {
+      float: left;
+    }
+  }
+
+  .svg--icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 2px;
   }
 
   .pagination--pages {
-    float: right;
+
+    margin-top: $nf-spacing;
+
+    @include fromWidth($mediumWidth) {
+      float: right;
+      margin-top: 0;
+    }
 
     button[disabled] {
       background: transparentize(#FFF, 0.5);
@@ -15,7 +31,7 @@
     }
 
     .pagination--current {
-      margin: 0 $nf-spacing/2;
+      margin: 0 $nf-spacing/4;
     }
   }
 

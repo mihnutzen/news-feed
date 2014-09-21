@@ -8,9 +8,19 @@
     </ul>
   </div>
   <div class="pagination--pages">
-    <button class="pagination--prev" ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev Page </button>
+    <button class="pagination--prev" ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()">
+      <svg class="svg--icon">
+        <use xlink:href="#icon-left" />
+      </svg>
+      Prev Page
+    </button>
     <span class="pagination--current">{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
-    <button class="pagination--next" ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next Page </button>
+    <button class="pagination--next" ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()">
+      Next Page
+      <svg class="svg--icon">
+        <use xlink:href="#icon-right" />
+      </svg>
+    </button>
   </div>
 </div>
 

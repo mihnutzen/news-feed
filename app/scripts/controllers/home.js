@@ -63,7 +63,6 @@
 
         $scope.toggleDropdown = function() {
           $scope.dropdownIsOpen = !$scope.dropdownIsOpen;
-          console.log('$scope.dropdownIsOpen', $scope.dropdownIsOpen);
         };
 
         $scope.setVisualType = function(img, indx) {
@@ -79,10 +78,7 @@
               } else {
                 $scope.newsList[indx].isBig = false;
               }
-
               $scope.$apply();
-
-              // console.log('$scope.newsList[indx]', $scope.newsList[indx], $scope.newsList[indx].isBig);
             };
           }
         };
@@ -109,7 +105,7 @@
 
       },
 
-      templateUrl: 'views/main.html'
+      templateUrl: 'views/list.html'
     };
 
   });
