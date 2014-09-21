@@ -9,8 +9,7 @@ Tech stack:
 
 Grunt 
 Angular JS 
-Twitter Bootstrap
-SASS & Compass
+SASS & Compass 
 
 
 
