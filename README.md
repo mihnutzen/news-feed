@@ -7,15 +7,16 @@ Data URL: http://pipes.yahoo.com/pipes/pipe.run?_id=DqsF_ZG72xGLbes9l7okhQ&_rend
 
 Tech stack: 
 
-  Grunt 
-  Angular JS 
-  Twitter Bootstrap
-  SASS & Compass
+Grunt 
+Angular JS 
+Twitter Bootstrap
+SASS & Compass
 
 
 
 Set-up: 
 
-  npm install 
-  grunt / grunt serve 
+npm install 
+bower install
+grunt / grunt serve 
 
