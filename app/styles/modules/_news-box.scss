@@ -35,14 +35,18 @@
   }
 
   .news-box--pagination {
-    position: absolute;
-    bottom: $nf-spacing * 2;
-    right: $nf-spacing;
+    margin-top: $nf-spacing;
+
+    @include fromWidth($mediumWidth) {
+      position: absolute;
+      bottom: $nf-spacing * 2;
+      right: $nf-spacing;
+    }
 
     a {
       display: inline-block;
       cursor: pointer;
-      margin: 0 $nf-spacing/2;
+      margin-right: $nf-spacing;
 
       font-size: 16px;
       font-weight: 700;

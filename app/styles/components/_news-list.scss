@@ -8,22 +8,51 @@
   .news-list--item {
     float: left;
     position: relative;
-
-    margin-right: 2%;
-    margin-bottom: 2%;
-
-    width: 32%;
-    min-height: 206px;
-
     cursor: pointer;
 
-    &:nth-child(3n+1) {
-      clear: left;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: $nf-spacing/2;
+
+    @include fromWidth($smallWidth + 1px) {
+      margin-right: 2%;
+      margin-bottom: 2%;
+      width: 48%;
+      min-height: 206px;
+
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+
+      &:nth-child(2n+2) {
+        margin-right: 0;
+        clear: right;
+      }
     }
 
-    &:nth-child(3n+3) {
-      margin-right: 0;
-      clear: right;
+    @include fromWidth($mediumWidth) {
+      margin-right: 2%;
+      margin-bottom: 2%;
+      width: 32%;
+      min-height: 206px;
+
+      &:nth-child(2n+1) {
+        clear: none;
+      }
+
+      &:nth-child(2n+2) {
+        margin-right: 2%;
+        clear: none;
+      }
+
+      &:nth-child(3n+1) {
+        clear: left;
+      }
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+        clear: right;
+      }
     }
 
     &:hover {
