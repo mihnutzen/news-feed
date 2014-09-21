@@ -53,14 +53,39 @@
           setItemsPerpage: function(number) {
             this.itemsPerPage = number;
             this.totalPages();
+            $scope.toggleDropdown();
           }
         };
-
 
         $scope.openItem = function(id) {
           $state.go('news', { newsId: id });
         };
 
+        $scope.toggleDropdown = function() {
+          $scope.dropdownIsOpen = !$scope.dropdownIsOpen;
+          console.log('$scope.dropdownIsOpen', $scope.dropdownIsOpen);
+        };
+
+        $scope.setVisualType = function(img, indx) {
+          var dummyImg = document.createElement('img');
+          if (img) {
+            dummyImg.src = img;
+
+            dummyImg.onload = function() {
+              var imgWidth = dummyImg.width;
+
+              if (imgWidth > 300) {
+                $scope.newsList[indx].isBig = true;
+              } else {
+                $scope.newsList[indx].isBig = false;
+              }
+
+              $scope.$apply();
+
+              // console.log('$scope.newsList[indx]', $scope.newsList[indx], $scope.newsList[indx].isBig);
+            };
+          }
+        };
 
         $scope.$watch('newsList', function (data) {
           if (data) {
@@ -73,6 +98,10 @@
                 itemData.visual = itemData['media:content'].url;
               } else if (itemData['media:thumbnail'] && itemData['media:thumbnail'].url) {
                 itemData.visual = itemData['media:thumbnail'].url;
+              }
+
+              if (itemData.visual) {
+                $scope.setVisualType(itemData.visual, i);
               }
             }
           }

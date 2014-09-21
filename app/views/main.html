@@ -1,33 +1,26 @@
-<div class="row" ng-if="newsList" style="margin: 20px 0;">
-  <div class="dropdown col-md-3">
-    <a role="button" data-toggle="dropdown" href="#">Items per page<span class="caret"></span></a>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-      <li ng-repeat="multiply in [1,2,3,4,5]" ng-click="pagination.setItemsPerpage(multiply * 10)" role="presentation"><a href="" role="menuitem">{{ multiply * 10 }} items</a></li>
-
+<div class="pagination" ng-if="newsList">
+  <div class="dropdown pagination--counter" ng-class="{ open: dropdownIsOpen }">
+    <a class="dropdown--trigger" ng-click="toggleDropdown()">Items per page ({{ pagination.itemsPerPage }})</a>
+    <ul class="dropdown--menu">
+      <li ng-repeat="multiply in [1,2,3,4,5]" ng-click="pagination.setItemsPerpage(multiply * 10)" role="presentation">
+        <a href="" role="menuitem">{{ multiply * 10 }} items</a>
+      </li>
     </ul>
   </div>
-  <div class="col-md-6">
-    <button ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev </button>
-    <span>{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
-    <button ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next </button>
+  <div class="pagination--pages">
+    <button class="pagination--prev" ng-disabled="pagination.startPos == 0" ng-click="pagination.prevPage()"> Prev </button>
+    <span class="pagination--current">{{ pagination.startPos + 1 }} / {{ pagination.totalPages() }}</span>
+    <button class="pagination--next" ng-disabled="pagination.startPos == pagination.totalPages()" ng-click="pagination.nextPage()"> Next </button>
   </div>
 </div>
 
-<div class="panel-group" id="accordion" ng-if="newsList">
-  <div class="panel panel-default" ng-repeat="news in newsList | startFrom:pagination.startPos*pagination.itemsPerPage | limitTo: pagination.itemsPerPage">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" ng-click="openItem($index + pagination.startPos*pagination.itemsPerPage + 1)">
-          <span ng-if="news.visual"><img ng-src="{{ news.visual }}" alt="{{ news.title }}" /></span>
-          {{ news.title }}
-        </a>
-      </h4>
-    </div>
-    <div id="item{{ $index }}" class="panel-collapse collapse">
-      <div class="panel-body">
-        <div ng-bind-html="news.description"></div>
-        <a class="follow" href="{{ news.link }}" target="_blank">Read article</a>
-      </div>
-    </div>
+<div class="news-list" id="accordion" ng-if="newsList">
+  <div class="news-list--item" ng-repeat="news in newsList | startFrom:pagination.startPos*pagination.itemsPerPage | limitTo: pagination.itemsPerPage" ng-class="{ 'big-image': news.isBig, 'small-image': !news.isBig, 'no-image': !news.visual }">
+    <h2 class="heading-4">
+      <a ng-click="openItem($index + pagination.startPos*pagination.itemsPerPage + 1)">
+        <img ng-if="news.visual" ng-src="{{ news.visual }}" alt="{{ news.title }}" />
+        <span class="news-list--title">{{ news.title }}</span>
+      </a>
+    </h2>
   </div>
 </div>

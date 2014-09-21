@@ -1,5 +1,10 @@
-<h1>{{ newsItem.title }}</h1>
-<div ng-bind-html="newsItem.description"></div>
+<div class="news-box" ng-if="newsItem">
+  <h1 class="news-box--title heading-2">{{ newsItem.title }}</h1>
+  <div class="news-box--body" ng-bind-html="newsItem.description"></div>
+
+  <a class="news-box--follow" href="{{ newsItem.link }}" target="_blank">Read entire article</a>
+
+</div>
 
 <p class="prev"><a ng-click="prevNews()">prev</a></p>
 <p class="next"><a ng-click="nextNews()">next</a></p>

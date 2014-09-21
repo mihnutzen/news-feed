@@ -1,7 +1,47 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+/**
+ * main.scss
+ *
+ * News Feed
+ * 2014
+ *
+ * @author Mihnea Belcin
+ */
+
+// $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+
+/*------------------------------------*\
+    $GLOBAL
+\*------------------------------------*/
+
+@import "generic/variables";
+@import "generic/mixins";
+@import "generic/reset";
+@import "generic/typography";
+
+
+/*------------------------------------*\
+    COMPONENTS & MODULES
+\*------------------------------------*/
+
+@import "components/pagination";
+@import "components/news-list";
+@import "components/dropdown";
+@import "modules/news-box";
+
+/*------------------------------------*\
+    PAGES
+\*------------------------------------*/
+
+@import "pages/home-page";
+
+
+
+
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -10,32 +50,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
   background: #3796E3;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
 }
 
 
@@ -82,59 +102,5 @@ body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
     box-shadow: -0.11em -0.83em 0 -0.4em #ffffff, -0.11em -0.83em 0 -0.42em #ffffff, -0.11em -0.83em 0 -0.44em #ffffff, -0.11em -0.83em 0 -0.46em #ffffff, -0.11em -0.83em 0 -0.477em #ffffff;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }
