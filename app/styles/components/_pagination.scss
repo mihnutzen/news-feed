@@ -1,0 +1,13 @@
+.pagination {
+  overflow: hidden;
+  width: 100%;
+  padding: $nf-spacing 0;
+
+  .pagination--counter {
+    float: left;
+  }
+
+  .pagination--pages {
+    float: right;
+  }
+}

@@ -1,0 +1,17 @@
+.dropdown {
+  .dropdown--trigger {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .dropdown--menu {
+    display: none;
+  }
+
+  &.open {
+    .dropdown--menu {
+      display: block;
+    }
+  }
+}

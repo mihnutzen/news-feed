@@ -1,0 +1,19 @@
+.home-page {
+    max-width: $defaultWidth;
+    margin: 0 auto;
+    padding: 0 $nf-spacing;
+
+    .header {
+      border-bottom: 10px solid #FFF;
+
+      > h1 {
+        color: #FFF;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      }
+    }
+
+    .news-list--holder {
+      overflow: hidden;
+      width: 100%;
+    }
+}

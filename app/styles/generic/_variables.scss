@@ -1,0 +1,50 @@
+/**
+ * variables.scss
+ *
+ * Rio
+ * R/GA 2013
+ *
+ * @author Mihnea Belcin
+ */
+
+/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+
+//Colors
+$white : #fff;
+$black : #000;
+
+$error : #f00;
+$valid : #089e00;
+
+$brand-facebook: #03539e;
+$brand-twitter: #2daae4;
+
+$colors: #494aa7, #43a1a9, #d74f35, #d74f35, #86a52d, #034786, #de9218, #671458;
+
+
+//Typography
+@font-face{
+    font-family: "Futura W01 Bold";
+    font-weight: bold;
+  // src:url("../fonts/futura-condensed/futuristd-condensed-webfont.eot?#iefix");
+	  src:url("../fonts/futura-condensed/futuristd-condensed-webfont.eot?#iefix");
+	  src:url("../fonts/futura-condensed/futuristd-condensed-webfont.eot?#iefix") format("eot"),
+	      url("../fonts/futura-condensed/futuristd-condensed-webfont.woff") format("woff"),
+	      url("../fonts/futura-condensed/futuristd-condensed-webfont.ttf") format("truetype"),
+	      url("../fonts/futura-condensed/futuristd-condensed-webfont.svg") format("svg");
+}
+
+$fontDefault: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$fontCustom: 'Futura W01 Bold', 'FuturaLT-Bold', 'Futura', sans-serif;
+
+
+//Breakpoints
+$defaultWidth:                 1024px !default;
+$smallWidth:                   320px  !default;
+$mediumWidth:                  768px  !default;
+$largeWidth:                   1200px !default;
+$hugeWidth:                    1400px !default;
+
+$nf-spacing: 24px;

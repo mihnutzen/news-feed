@@ -1,0 +1,35 @@
+.news-box {
+  background: #FFF;
+  padding: $nf-spacing * 2;
+  margin-top: $nf-spacing;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+
+  .news-box--title {
+    width: 60%;
+    margin-bottom: $nf-spacing;
+  }
+
+  .news-box--body {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: $nf-spacing;
+
+    img {
+      display: inline-block;
+      margin-right: $nf-spacing/2;
+    }
+  }
+
+  .news-box--follow {
+    font-size: 16px;
+    font-family: $fontCustom;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #666;
+    }
+  }
+}
