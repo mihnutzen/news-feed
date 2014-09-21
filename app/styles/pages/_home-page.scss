@@ -4,7 +4,7 @@
     padding: 0 $nf-spacing;
 
     .header {
-      border-bottom: 10px solid #FFF;
+      border-bottom: $nf-spacing/3 solid #FFF;
 
       > h1 {
         color: #FFF;
@@ -15,5 +15,10 @@
     .news-list--holder {
       overflow: hidden;
       width: 100%;
+      clear: both;
+    }
+
+    .footer {
+      padding-bottom: $nf-spacing;
     }
 }

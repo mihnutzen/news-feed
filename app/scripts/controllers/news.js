@@ -44,6 +44,10 @@
           }
         };
 
+        $scope.goHome = function() {
+          $state.go('home');
+        };
+
         $scope.goToNews = function(id) {
           $state.go('news', { newsId: id });
         };

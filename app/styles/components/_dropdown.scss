@@ -1,12 +1,32 @@
 .dropdown {
+  padding: 5px 10px;
+  background: #FFF;
+  border-radius: 4px;
+  position: relative;
+
   .dropdown--trigger {
     font-size: 16px;
+    line-height: 20px;
     font-weight: 700;
     text-decoration: none;
+    color: #000;
   }
 
   .dropdown--menu {
     display: none;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: 0;
+
+    padding: 5px 10px;
+    background: #FFF;
+    border-radius: 0 0 4px 4px;
+
+    > li {
+      margin-bottom: 5px;
+    }
   }
 
   &.open {

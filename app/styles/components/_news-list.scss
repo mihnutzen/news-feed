@@ -2,6 +2,8 @@
   // background-color: pink;
   width: 100%;
   overflow: hidden;
+  clear: both;
+  padding-top: $nf-spacing/2;
 
   .news-list--item {
     float: left;
